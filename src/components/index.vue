@@ -14,7 +14,7 @@
                   <!--ชื่อ-->
                   <div class="profile-usertitle" v-if="authorized">
                     <div class="profile-usertitle-name">
-                      <h3>{{ profile.name }}</h3>
+                      <a :href="'https://www.facebook.com/' + this.profile.id" STYLE="text-decoration: none"><h3>{{ profile.name }}</h3></a>
                     </div>
                     <div class="profile-usertitle-job">
                       <h4>Facebook User</h4>

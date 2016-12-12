@@ -14,7 +14,7 @@
 				      <!--ชื่อ-->
 				      <div class="profile-usertitle" >
 					      <div class="profile-usertitle-name" v-if="authorized">
-						      <h3>{{ profile.name }}</h3>
+						      <a :href="'https://www.facebook.com/' + this.profile.id" STYLE="text-decoration: none"><h3>{{ profile.name }}</h3></a>
 					      </div>
                 <div class="profile-usertitle-name" v-else="authorized">
 						      <h3>Unknow</h3>
