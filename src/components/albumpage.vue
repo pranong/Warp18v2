@@ -3,25 +3,29 @@
       <div v-if="ready" class="">
         <div class="container">
           <div class="row profile">
-		        <div class="col-md-3">
+            <div class="Fixed">
+		        <div class="col-md-5">
 			        <div class="profile-sidebar">
 				    <!-- SIDEBAR USERPIC -->
-				        <div class="profile-userpic">
-					        <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
-                  <img v-else="authorized" src="/static/man.jpg" class="img-responsive"></img>
+				        <div class="profile-userpic" v-if="authorized">
+					        <img  :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
 				        </div>
+                <div class="profile-userpic" v-else="authorized" >
+					        <img src="/static/warp.gif"></img>
+				        </div>
+
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
-				        <div class="profile-usertitle" v-if="authorized">
-					        <div class="profile-usertitle-name">
+				        <div class="profile-usertitle" >
+					        <div class="profile-usertitle-name" v-if="authorized">
 						              <h3>{{ profile.name }}</h3>
 					        </div>
-					        <div class="profile-usertitle-job">
+                  <div class="profile-usertitle-name" v-else="authorized">
+						              <h3>Unknow</h3>
+					        </div>
+					        <div class="profile-usertitle-job" v-if="authorized">
 						              <h4>Facebook User</h4>
 					        </div>
-				        </div>
-                <div class="profile-usertitle" v-else="authorized">
-                  <h4>Newbie</h4>
 				        </div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
@@ -41,7 +45,7 @@
 						<li class="active">
 							<a href="#" class="disabled">
 							<i class="glyphicon glyphicon-folder-open"></i>
-							Album of {{realalbum}} </a>
+							Album of {{realalbum}}® </a>
 						</li>
 						<li>
 							<a href="#" class="disabled">
@@ -51,25 +55,18 @@
               <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
               <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+              <h4><a href="https://www.facebook.com/PranongOi" STYLE="text-decoration: none">Nut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/neativit.keawthong" STYLE="text-decoration: none">Nae</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Phanurut.Chamaree" STYLE="text-decoration: none">Petch</a></h4>
             <li>
-                   <div class="col-sm-12 col-sm-offset-0">
-                     <div id="imaginary_container">
-                       <div class="input-group stylish-input-group">
-                         <input type="text" class="form-control"  placeholder="Search" >
-                         <span class="input-group-addon">
-                           <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+
 						</li>
 					</ul>
 				</div>
+      </div>
 				<!-- END MENU -->
 			</div>
 		</div>
+    <div class="col-md-3">
+    </div>
 		<div class="col-md-9">
             <div class="profile-content">
               <div v-if="authorized">
@@ -81,7 +78,7 @@
                   </ul>
                 </div>
                 <!-- </div> -->
-                <h1>{{realalbum}}</h1>
+                <h1>{{realalbum}}®</h1>
               </div>
               <div v-else="authorized">
                 <h5>Error (.)(.) : Please Sign in with&nbsp;&nbsp;&nbsp;&nbsp; Facebook</h5>
@@ -95,8 +92,8 @@
                 <div class="row">
                   <div class="col-sm-12 col-sm-offset-0">
                     <div v-for="album in albums" v-if="album.cover_photo" class="box">
-                      <router-link to="/imagepage"><img class = "img-rounded" width = '50%' @click="setIdAlbum(album.id)" :src="'https://graph.facebook.com/' + album.cover_photo.id + '/picture'" alt=""></img></router-link>
-                      <h2>{{ album.name }}</h2>
+                      <router-link to="/imagepage" STYLE="text-decoration: none"><img class = "img-rounded" width = '50%' @click="setIdAlbum(album.id)" :src="'https://graph.facebook.com/' + album.cover_photo.id + '/picture'" alt=""></img><h2>● {{ album.name }} ●</h2></router-link>
+
                     </div>
                     <div class="btn-group demoPadder" role="group" aria-label="Basic example">
                       <button type="button" class="btn btn-default" @click="goPre();"><span class="glyphicon glyphicon-menu-left"></span>{{this.pre}}</button>
@@ -108,6 +105,7 @@
             </div>
 		        </div>
 	         </div>
+
          </div>
          <br>
          <br>
@@ -387,7 +385,7 @@ body {
 
 /* Profile container */
 .profile {
-  margin: 20px 0;
+  margin: -30px 0;
 }
 
 /* Profile sidebar */
@@ -487,6 +485,12 @@ body {
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}
+.Fixed
+{
+    position: fixed;
+    top: 30px;
+    width: 700px;
 }
 h1 {
   font-family: 'Lobster', cursive;

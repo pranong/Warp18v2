@@ -5,12 +5,13 @@
 
         <div class="container">
           <div class="row profile">
-		        <div class="col-md-3">
+            <div class="Fixed">
+		        <div class="col-md-5">
 			        <div class="profile-sidebar">
 				    <!-- SIDEBAR USERPIC -->
 				        <div class="profile-userpic">
                   <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
-                  <img v-else="authorized" src="/static/man.jpg" class="img-responsive"></img>
+                  <img v-else="authorized" src="/static/warp.gif" class="img-responsive"></img>
 				        </div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
@@ -41,10 +42,10 @@
 							Home </a>
 						</li>
 						<li>
-              <router-link to="/albumpage">
-							<a href="#">
+              <router-link to="/albumpage" >
+							<a href="#" STYLE="text-decoration: none">
 							<i class="glyphicon glyphicon-folder-open"></i>
-							Album of {{realalbum}}</a>
+							Album of {{realalbum}}®</a>
             </router-link>
 						</li>
 						<li class="active">
@@ -57,24 +58,16 @@
             <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
             <h4>Nut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nae&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Petch</h4>
             <li>
-                   <div class="col-sm-12 col-sm-offset-0">
-                     <div id="imaginary_container">
-                       <div class="input-group stylish-input-group">
-                         <input type="text" class="form-control"  placeholder="Search" >
-                         <span class="input-group-addon">
-                           <button type="submit">
-                            <span class="glyphicon glyphicon-search"></span>
-                          </button>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+
 						</li>
 					</ul>
 				</div>
 				<!-- END MENU -->
 			</div>
 		</div>
+    </div>
+    <div class="col-md-3">
+    </div>
 		<div class="col-md-9">
             <div class="profile-content">
               <div v-if="authorized">
@@ -87,8 +80,8 @@
                   </ul>
                 </div>
                 <!-- </div> -->
-                <h1>{{realalbum}}</h1>
-                <h2>{{this.realname.name}}</h2>
+                <h1>{{realalbum}}®</h1>
+                <h2>● {{this.realname.name}} ●</h2>
               </div>
               <div v-else="authorized">
                 <h5>Error (.)(.) : Please Sign in with Facebook</h5>
@@ -101,7 +94,7 @@
                   <div class="row">
                     <div class="col-sm-12 col-sm-offset-0">
                       <div  v-for="photo in photos" class="box">
-                        <img class = "img-rounded" width = '50%' :src="photo.images[5].source" alt="" /><br>
+                        <img class = "img-rounded" width = '60%' :src="photo.images[1].source" alt="" /><br>
                       </div>
                     </div>
                   </div>

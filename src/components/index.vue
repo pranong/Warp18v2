@@ -1,53 +1,70 @@
 <template lang="html">
-  <div class="">
-    <nav class="navbar navbar-default" role="presentation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Warp 18+</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><router-link to="/">Home<span class="sr-only">(current)</span></router-link></li>
-
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select Page <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupamag')">Cup A</h4></router-link>
-                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupdmag')">Cup D</h4></router-link>
-                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupemag')">Cup E</h4></router-link>
-                <li><router-link to="/albumpage"><h4 @click="setIdPage('Angels.mag2')">Sexy angel</h4></router-link>
-                <li><router-link to="/albumpage"><h4 @click="setIdPage('agirlmag')">A girl</h4></router-link>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Select other pages</a></li>
-              </ul>
-            </li>
-
-          </ul>
-          <form class="navbar-form navbar-right">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Input Page_ID" length="2" id="search">
+  <div id="app">
+    <div class="container">
+      <div class="row profile">
+    <div class="col-md-3">
+      <div class="Fixed">
+      <div class="col-md-5">
+        <div class="profile-sidebar">
+      <!-- SIDEBAR USERPIC -->
+          <div class="profile-userpic">
+            <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
+            <img v-else="authorized" src="/static/warp.gif" class="img-responsive"></img>
+          </div>
+  <!-- END SIDEBAR USERPIC -->
+  <!-- SIDEBAR USER TITLE -->
+          <div class="profile-usertitle" v-if="authorized">
+            <div class="profile-usertitle-name">
+                    <h3>{{ profile.name }}</h3>
             </div>
-              <router-link to="/albumpage"><button type="submit" class="btn btn-default" @click="setIdPage(document.getElementById('search').value)">Search</button></router-link>
+            <div class="profile-usertitle-job">
+                    <h4>Facebook User</h4>
+            </div>
+          </div>
+          <div class="profile-usertitle" v-else="authorized">
+            <h4>Newbie</h4>
+          </div>
+  <!-- END SIDEBAR USER TITLE -->
+  <!-- SIDEBAR BUTTONS -->
+  <div class="profile-userbuttons">
+    <button v-if="authorized" @click="logout()" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button>
+    <button v-else="authorized" @click="login()" class="btn btn-primary"><i class="fa fa-facebook"></i> Sign in with Facebook</button>
+  </div>
+  <!-- END SIDEBAR BUTTONS -->
+  <!-- SIDEBAR MENU -->
+  <div class="profile-usermenu">
+    <ul class="nav">
+      <li>
+        <a href="#">
+        <i class="glyphicon glyphicon-home"></i>
+        Home </a>
+      </li>
+      <li class="active">
+        <a href="#" class="disabled">
+        <i class="glyphicon glyphicon-folder-open"></i>
+        Album</a>
+      </li>
+      <li>
+        <a href="#" class="disabled">
+        <i class="glyphicon glyphicon-picture"></i>
+        Photos </a>
+      </li>
+        <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+        <h4><a href="https://www.facebook.com/PranongOi" STYLE="text-decoration: none">Nut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/neativit.keawthong" STYLE="text-decoration: none">Nae</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Phanurut.Chamaree" STYLE="text-decoration: none">Petch</a></h4>
+      <li>
 
-              <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=40'" alt=""></img>
-              <button v-if="authorized" @click="logout()" class="btn btn-danger">Logout</button>
-              <button v-else="authorized" @click="login()" class="btn btn-primary">Login</button>
-
-          </form>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="box">
+      </li>
+    </ul>
+  </div>
+</div>
+  <!-- END MENU -->
+</div>
+</div>
+    </div>
+    <div class="col-md-9">
+      <div class="profile-content">
       <div class="row">
         <div class="col-xs-6 col-md-3">
             <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('cupamag')"><img :src="'https://graph.facebook.com/' + 'cupamag' + '/picture?height=100'" alt=""><br>Cup A</h4></router-link>
@@ -79,6 +96,9 @@
       </div>
     </div>
   </div>
+</div>
+</div>
+</div>
 </template>
 
 <script>
