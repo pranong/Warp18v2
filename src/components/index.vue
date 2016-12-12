@@ -21,11 +21,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Select Page <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><router-link to="/albumpage"><h5 @click="setIdPage('cupamag')">Cup A</h5></router-link>
-                <li><router-link to="/albumpage"><h5 @click="setIdPage('cupdmag')">Cup D</h5></router-link>
-                <li><router-link to="/albumpage"><h5 @click="setIdPage('cupemag')">Cup E</h5></router-link>
-                <li><router-link to="/albumpage"><h5 @click="setIdPage('Angels.mag2')">Sexy angel</h5></router-link>
-                <li><router-link to="/albumpage"><h5 @click="setIdPage('agirlmag')">A girl</h5></router-link>
+                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupamag')">Cup A</h4></router-link>
+                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupdmag')">Cup D</h4></router-link>
+                <li><router-link to="/albumpage"><h4 @click="setIdPage('cupemag')">Cup E</h4></router-link>
+                <li><router-link to="/albumpage"><h4 @click="setIdPage('Angels.mag2')">Sexy angel</h4></router-link>
+                <li><router-link to="/albumpage"><h4 @click="setIdPage('agirlmag')">A girl</h4></router-link>
                 <li role="separator" class="divider"></li>
                 <li><a href="#">Select other pages</a></li>
               </ul>
@@ -50,31 +50,31 @@
     <div class="box">
       <div class="row">
         <div class="col-xs-6 col-md-3">
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('cupamag')"><img :src="'https://graph.facebook.com/' + 'cupamag' + '/picture?height=100'" alt=""><br>Cup A</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('cupdmag')"><img :src="'https://graph.facebook.com/' + 'cupdmag' + '/picture?height=100'" alt=""><br>Cup D</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('cupemag')"><img :src="'https://graph.facebook.com/' + 'cupemag' + '/picture?height=100'" alt=""><br>Cup E</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('Angels.mag2')"><img :src="'https://graph.facebook.com/' + 'Angels.mag2' + '/picture?height=100'" alt=""><br>Sexy angel</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('agirlmag')"><img :src="'https://graph.facebook.com/' + 'agirlmag' + '/picture?height=100'" alt=""><br>a girl</h5></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('cupamag')"><img :src="'https://graph.facebook.com/' + 'cupamag' + '/picture?height=100'" alt=""><br>Cup A</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('cupdmag')"><img :src="'https://graph.facebook.com/' + 'cupdmag' + '/picture?height=100'" alt=""><br>Cup D</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('cupemag')"><img :src="'https://graph.facebook.com/' + 'cupemag' + '/picture?height=100'" alt=""><br>Cup E</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('Angels.mag2')"><img :src="'https://graph.facebook.com/' + 'Angels.mag2' + '/picture?height=100'" alt=""><br>Sexy angel</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('agirlmag')"><img :src="'https://graph.facebook.com/' + 'agirlmag' + '/picture?height=100'" alt=""><br>a girl</h4></router-link>
         </div>
         <div class="col-xs-6 col-md-3">
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('1677041912621580')"><img :src="'https://graph.facebook.com/' + '1677041912621580' + '/picture?height=100'" alt=""><br>k-girl</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('1488731304764039')"><img :src="'https://graph.facebook.com/' + '1488731304764039' + '/picture?height=100'" alt=""><br>Makrid</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('1647102408856768')"><img :src="'https://graph.facebook.com/' + '1647102408856768' + '/picture?height=100'" alt=""><br>Leo1991 Studio	</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('812938462158071')"><img :src="'https://graph.facebook.com/' + '812938462158071' + '/picture?height=100'" alt=""><br>Intent Art Gallery</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('798627650219522')"><img :src="'https://graph.facebook.com/' + '798627650219522' + '/picture?height=100'" alt=""><br>Remembrance Life</h5></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('1677041912621580')"><img :src="'https://graph.facebook.com/' + '1677041912621580' + '/picture?height=100'" alt=""><br>k-girl</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('1488731304764039')"><img :src="'https://graph.facebook.com/' + '1488731304764039' + '/picture?height=100'" alt=""><br>Makrid</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('1647102408856768')"><img :src="'https://graph.facebook.com/' + '1647102408856768' + '/picture?height=100'" alt=""><br>Leo1991 Studio	</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('812938462158071')"><img :src="'https://graph.facebook.com/' + '812938462158071' + '/picture?height=100'" alt=""><br>Intent Art Gallery</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('798627650219522')"><img :src="'https://graph.facebook.com/' + '798627650219522' + '/picture?height=100'" alt=""><br>Remembrance Life</h4></router-link>
         </div>
         <div class="col-xs-6 col-md-3">
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('136276129896856')"><img :src="'https://graph.facebook.com/' + '136276129896856' + '/picture?height=100'" alt=""><br>Chayang Vintage Photographer</img></h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('203413816686770')"><img :src="'https://graph.facebook.com/' + '203413816686770' + '/picture?height=100'" alt=""><br>Guypic</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('695316487270076')"><img :src="'https://graph.facebook.com/' + '695316487270076' + '/picture?height=100'" alt=""><br>Wenge.</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('820679761371818')"><img :src="'https://graph.facebook.com/' + '820679761371818' + '/picture?height=100'" alt=""><br>Wonderful Gallery</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('833137843460451')"><img :src="'https://graph.facebook.com/' + '833137843460451' + '/picture?height=100'" alt=""><br>anp.k</h5></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('136276129896856')"><img :src="'https://graph.facebook.com/' + '136276129896856' + '/picture?height=100'" alt=""><br>Chayang Vintage Photographer</img></h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('203413816686770')"><img :src="'https://graph.facebook.com/' + '203413816686770' + '/picture?height=100'" alt=""><br>Guypic</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('695316487270076')"><img :src="'https://graph.facebook.com/' + '695316487270076' + '/picture?height=100'" alt=""><br>Wenge.</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('820679761371818')"><img :src="'https://graph.facebook.com/' + '820679761371818' + '/picture?height=100'" alt=""><br>Wonderful Gallery</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('833137843460451')"><img :src="'https://graph.facebook.com/' + '833137843460451' + '/picture?height=100'" alt=""><br>anp.k</h4></router-link>
         </div>
         <div class="col-xs-6 col-md-3">
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('1666155086932470')"><img :src="'https://graph.facebook.com/' + '1666155086932470' + '/picture?height=100'" alt=""><br>TuaTung Photographer</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('437871096289260')"><img :src="'https://graph.facebook.com/' + '437871096289260' + '/picture?height=100'" alt=""><br>ICEZ PHOTO</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('487003051473640')"><img :src="'https://graph.facebook.com/' + '487003051473640' + '/picture?height=100'" alt=""><br>Slotmxcn</h5></router-link>
-            <router-link to="/albumpage" class="thumbnail"><h5 @click="setIdPage('nonlenssnap')"><img :src="'https://graph.facebook.com/' + 'nonlenssnap' + '/picture?height=100'" alt=""><br>F/1352</h5></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('1666155086932470')"><img :src="'https://graph.facebook.com/' + '1666155086932470' + '/picture?height=100'" alt=""><br>TuaTung Photographer</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('437871096289260')"><img :src="'https://graph.facebook.com/' + '437871096289260' + '/picture?height=100'" alt=""><br>ICEZ PHOTO</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('487003051473640')"><img :src="'https://graph.facebook.com/' + '487003051473640' + '/picture?height=100'" alt=""><br>Slotmxcn</h4></router-link>
+            <router-link to="/albumpage" class="thumbnail"><h4 @click="setIdPage('nonlenssnap')"><img :src="'https://graph.facebook.com/' + 'nonlenssnap' + '/picture?height=100'" alt=""><br>F/1352</h4></router-link>
         </div>
       </div>
     </div>
@@ -172,7 +172,7 @@ html, body {
   padding: 30px;
 }
 .box {
-  background-color: #B6E3F6;
+  background-color: #FFFFFF;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;

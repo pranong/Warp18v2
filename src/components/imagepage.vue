@@ -9,26 +9,27 @@
 			        <div class="profile-sidebar">
 				    <!-- SIDEBAR USERPIC -->
 				        <div class="profile-userpic">
-					        <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
+                  <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
+                  <img v-else="authorized" src="/static/man.jpg" class="img-responsive"></img>
 				        </div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				        <div class="profile-usertitle" v-if="authorized">
 					        <div class="profile-usertitle-name">
-						              {{ profile.name }}
+						              <h3>{{ profile.name }}</h3>
 					        </div>
 					        <div class="profile-usertitle-job">
-						              Facebook User
+						              <h4>Facebook User</h4>
 					        </div>
 				        </div>
                 <div class="profile-usertitle" v-else="authorized">
-                  Newbie
+                  <h4>Newbie</h4>
 				        </div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<button v-if="authorized" @click="logout()" class="btn btn-danger">Logout</button>
-          <button v-else="authorized" @click="login()" class="btn btn-primary">Login with Facebook</button>
+					<button v-if="authorized" @click="logout()" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button>
+          <button v-else="authorized" @click="login()" class="btn btn-primary"><i class="fa fa-facebook"></i> Sign in with Facebook</button>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -51,7 +52,10 @@
 							<i class="glyphicon glyphicon-picture"></i>
 							Photos of {{this.realname.name}} </a>
 						</li>
-              Contact me : <a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+            <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+            <h4>Nut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nae&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Petch</h4>
             <li>
                    <div class="col-sm-12 col-sm-offset-0">
                      <div id="imaginary_container">
@@ -87,24 +91,21 @@
                 <h2>{{this.realname.name}}</h2>
               </div>
               <div v-else="authorized">
-                <h2>Error 6969 : Please Login with Facebook</h2>
+                <h5>Error (.)(.) : Please Sign in with Facebook</h5>
                 <img src="/static/error.gif" alt="" height="300"><br><br>
-                <img src="/static/fb_login.png" alt="" @click="login()" height="50"></img>
               </div>
 
               <router-view :id="id"></router-view>
 
-              <div v-if="authorized" class="">
                 <div v-if="authorized" class="">
                   <div class="row">
-                    <div class="ccol-sm-12 col-sm-offset-0">
-                      <div class="box">
-                      <img class = "img-rounded" width = '50%' v-for="photo in photos" :src="photo.images[5].source" alt="" />
+                    <div class="col-sm-12 col-sm-offset-0">
+                      <div  v-for="photo in photos" class="box">
+                        <img class = "img-rounded" width = '50%' :src="photo.images[5].source" alt="" /><br>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
             </div>
 		        </div>
 	         </div>
@@ -311,7 +312,7 @@ html, body {
 .breadcrumb li a:hover { background: #ffc107  ; }
 .breadcrumb li a:hover:after { border-left-color: #ffc107   !important; }
 .box {
-  background-color: #B6E3F6;
+  background-color: #FFFFFF;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;
@@ -319,4 +320,24 @@ html, body {
 img {
   width: 100%;
 }*/
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+}
+h2 {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+}
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
 </style>

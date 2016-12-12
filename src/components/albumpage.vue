@@ -1,9 +1,6 @@
 ้<template>
-
-  <div class="hello">
     <div id="app">
       <div v-if="ready" class="">
-
         <div class="container">
           <div class="row profile">
 		        <div class="col-md-3">
@@ -11,25 +8,26 @@
 				    <!-- SIDEBAR USERPIC -->
 				        <div class="profile-userpic">
 					        <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
+                  <img v-else="authorized" src="/static/man.jpg" class="img-responsive"></img>
 				        </div>
 				<!-- END SIDEBAR USERPIC -->
 				<!-- SIDEBAR USER TITLE -->
 				        <div class="profile-usertitle" v-if="authorized">
 					        <div class="profile-usertitle-name">
-						              {{ profile.name }}
+						              <h3>{{ profile.name }}</h3>
 					        </div>
 					        <div class="profile-usertitle-job">
-						              Facebook User
+						              <h4>Facebook User</h4>
 					        </div>
 				        </div>
                 <div class="profile-usertitle" v-else="authorized">
-                  Newbie
+                  <h4>Newbie</h4>
 				        </div>
 				<!-- END SIDEBAR USER TITLE -->
 				<!-- SIDEBAR BUTTONS -->
 				<div class="profile-userbuttons">
-					<button v-if="authorized" @click="logout()" class="btn btn-danger">Logout</button>
-          <button v-else="authorized" @click="login()" class="btn btn-primary">Login with Facebook</button>
+					<button v-if="authorized" @click="logout()" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button>
+          <button v-else="authorized" @click="login()" class="btn btn-primary"><i class="fa fa-facebook"></i> Sign in with Facebook</button>
 				</div>
 				<!-- END SIDEBAR BUTTONS -->
 				<!-- SIDEBAR MENU -->
@@ -50,7 +48,9 @@
 							<i class="glyphicon glyphicon-picture"></i>
 							Photos </a>
 						</li>
-              Contact me : <a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+              <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
             <li>
                    <div class="col-sm-12 col-sm-offset-0">
                      <div id="imaginary_container">
@@ -84,7 +84,7 @@
                 <h1>{{realalbum}}</h1>
               </div>
               <div v-else="authorized">
-                <h2>Error 6969 : Please Login with Facebook</h2>
+                <h5>Error (.)(.) : Please Sign in with&nbsp;&nbsp;&nbsp;&nbsp; Facebook</h5>
                 <img src="/static/error.gif" alt="" height="300"><br><br>
                 <img src="/static/fb_login.png" alt="" @click="login()" height="50"></img>
               </div>
@@ -112,14 +112,12 @@
          <br>
          <br>
        </div>
-
       <div v-else="ready" class="">
         <center>
           <router-link to="/"><img src="/static/warp.gif" alt="" width="200px"/></router-link>
         </center>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -278,7 +276,7 @@ html, body {
   padding: 30px;
 }
 .box {
-  background-color: #cee3f6;
+  background-color: #2c3e50;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 10px;
@@ -489,5 +487,30 @@ body {
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}
+h1 {
+  font-family: 'Lobster', cursive;
+  font-size: 60px;
+}
+h2 {
+  font-family: 'Lobster', cursive;
+  font-size: 30px;
+}
+h3 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
+}
+h5 {
+  font-family: 'Press Start 2P', cursive;;
+  font-size: 20px;
+  color: #656565;
+}
+li {
+  font-family: 'Raleway', sans-serif;
+  font-size: 15px;
 }
 </style>
