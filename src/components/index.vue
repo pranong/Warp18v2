@@ -31,8 +31,8 @@
                   <!-- MENU -->
                   <div class="profile-usermenu">
                     <ul class="nav">
-                      <li><a href="#"><i class="glyphicon glyphicon-home"></i>Home </a></li>
-                      <li class="active"><a href="#" class="disabled"><i class="glyphicon glyphicon-folder-open"></i>Album</a></li>
+                      <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>Home </a></li>
+                      <li><a href="#" class="disabled"><i class="glyphicon glyphicon-folder-open"></i>Album</a></li>
                       <li><a href="#" class="disabled"><i class="glyphicon glyphicon-picture"></i>Photos </a></li>
                       <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
                       <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
@@ -46,6 +46,11 @@
           </div>
           <div class="col-md-9">
             <div class="profile-content">
+              <div>
+                <ul class="breadcrumb">
+                  <li class="active"><a href="#" class="disabled"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;&nbsp; Home </a></li>
+                </ul>
+              </div>
               <div class="row">
                 <h1>Select Page~</h1>
                 <div class="col-xs-6 col-md-3">
@@ -138,7 +143,6 @@ export default {
       if (response.status === 'connected') {
         vm.authorized = true
         vm.getProfile()
-        vm.getAlbums()
       } else if (response.status === 'not_authorized') {
         vm.authorized = false
       } else {
