@@ -3,79 +3,19 @@
       <div v-if="ready" class="">
         <div class="container">
           <div class="row profile">
-            <div class="Fixed">
-		          <div class="col-md-5">
-			          <div class="profile-sidebar">
-				        <!-- รูป user -->
-				          <div class="profile-userpic">
-                    <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
-                    <img v-else="authorized" src="/static/warp.gif" class="img-responsive"></img>
-				          </div>
-				          <!-- ชื่อ -->
-				          <div class="profile-usertitle" v-if="authorized">
-					          <div class="profile-usertitle-name">
-						          <a :href="'https://www.facebook.com/' + this.profile.id" STYLE="text-decoration: none"><h3>{{ profile.name }}</h3></a>
-					          </div>
-					          <div class="profile-usertitle-job">
-						          <h4>Facebook User</h4>
-					          </div>
-				          </div>
-                  <div class="profile-usertitle" v-else="authorized">
-                    <h4>Newbie</h4>
-  				        </div>
-				<!-- SIDEBAR BUTTONS -->
-				<div class="profile-userbuttons">
-					<button v-if="authorized" @click="logout()" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button>
-          <button v-else="authorized" @click="login()" class="btn btn-primary"><i class="fa fa-facebook"></i> Sign in with Facebook</button>
-				</div>
-				<!-- END SIDEBAR BUTTONS -->
-				<!-- SIDEBAR MENU -->
-				<div class="profile-usermenu">
-					<ul class="nav">
-						<li>
-							<a href="#">
-							<i class="glyphicon glyphicon-home"></i>
-							Home </a>
-						</li>
-						<li>
-              <router-link to="/albumpage" >
-							<a href="#" STYLE="text-decoration: none">
-							<i class="glyphicon glyphicon-folder-open"></i>
-							Album of {{realalbum}}®</a>
-            </router-link>
-						</li>
-						<li class="active">
-							<a href="#" class="disabled">
-							<i class="glyphicon glyphicon-picture"></i>
-							Photos of {{this.realname.name}} </a>
-						</li>
-            <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-            <h4>Nut&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Nae&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Petch</h4>
-            <li>
-
-						</li>
-					</ul>
-				</div>
-				<!-- END MENU -->
-			</div>
-		</div>
-    </div>
-    <div class="col-md-3">
-    </div>
-		<div class="col-md-9">
+            <div>
+              <ul class="breadcrumb">
+                <li class="completed"><a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp; Home</a></li>
+                <router-link to="/albumpage"><li class="completed"><a href="#" class="disabled">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp; {{realalbum}}</a></router-link></li>
+                <li class="active"><a href="#" class="disabled"><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp; {{this.realname.name}} </a></li>
+                <div class="navbar-right">
+                  <li v-if="authorized" @click="logout()" class="navbar-right"><a href="javascript:function() { return false; }"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; Sign out</a></li>
+                  <li v-else="authorized" @click="login()" class="navbar-right"><a href="javascript:function() { return false; }"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; Sign in</a></li>
+                </div>
+              </ul>
+            </div>
             <div class="profile-content">
               <div v-if="authorized">
-                <!-- <div class="container"> -->
-                <div>
-                  <ul class="breadcrumb">
-                    <li class="completed"><a href="#" class="disabled"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;&nbsp; Home </a></li>
-                    <li class="completed"><a href="#" class="disabled"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;&nbsp;&nbsp; Album of {{realalbum}}</a></li>
-                    <li class="active"><a href="#" class="disabled"><i class="glyphicon glyphicon-picture"></i>&nbsp;&nbsp;&nbsp;&nbsp; Photos of {{this.realname.name}} </a></li>
-                  </ul>
-                </div>
-                <!-- </div> -->
                 <h1>{{realalbum}}®</h1>
                 <h2>● {{this.realname.name}} ●</h2>
               </div>
@@ -96,7 +36,7 @@
                   </div>
                 </div>
             </div>
-		        </div>
+
 	         </div>
          </div>
          <br>

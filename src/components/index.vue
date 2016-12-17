@@ -2,79 +2,41 @@
     <div id="app">
       <div class="container">
         <div class="row profile">
-          <div class="col-md-3">
-            <div class="Fixed">
-              <div class="col-md-5">
-                <div class="profile-sidebar">
-                  <!-- รูป user -->
-                  <div class="profile-userpic">
-                    <img v-if="authorized" :src="'https://graph.facebook.com/' + this.profile.id + '/picture?width=500'" alt="" class="img-responsive"></img>
-                    <img v-else="authorized" src="/static/warp.gif" class="img-responsive"></img>
+          <div class="container">
+            <div>
+              <ol class="breadcrumb breadcrumb-arrow">
+		              <li class="completed"><a href="#"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp; Home</a></li>
+                  <div class="navbar-right">
+                    <li v-if="authorized" @click="logout()" class="navbar-right"><a href="javascript:function() { return false; }"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; Sign out</a></li>
+                    <li v-else="authorized" @click="login()" class="navbar-right"><a href="javascript:function() { return false; }"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp; Sign in</a></li>
                   </div>
-                  <!--ชื่อ-->
-                  <div class="profile-usertitle" v-if="authorized">
-                    <div class="profile-usertitle-name">
-                      <a :href="'https://www.facebook.com/' + this.profile.id" STYLE="text-decoration: none"><h3>{{ profile.name }}</h3></a>
-                    </div>
-                    <div class="profile-usertitle-job">
-                      <h4>Facebook User</h4>
-                    </div>
-                  </div>
-                  <div class="profile-usertitle" v-else="authorized">
-                    <h4>Newbie</h4>
-                  </div>
-                  <!-- ปุ่ม Login-->
-                  <div class="profile-userbuttons">
-                    <button v-if="authorized" @click="logout()" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span> Logout</button>
-                    <button v-else="authorized" @click="login()" class="btn btn-primary"><i class="fa fa-facebook"></i> Sign in with Facebook</button>
-                  </div>
-                  <!-- MENU -->
-                  <div class="profile-usermenu">
-                    <ul class="nav">
-                      <li class="active"><a href="#"><i class="glyphicon glyphicon-home"></i>Home </a></li>
-                      <li><a href="#" class="disabled"><i class="glyphicon glyphicon-folder-open"></i>Album</a></li>
-                      <li><a href="#" class="disabled"><i class="glyphicon glyphicon-picture"></i>Photos </a></li>
-                      <h4>Contact us : </h4><a href="https://www.facebook.com/PranongOi" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-                      <a href="https://www.facebook.com/neativit.keawthong" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-                      <a href="https://www.facebook.com/Phanurut.Chamaree" target="_blank" class="btn-social btn-facebook"><i class="fa fa-facebook"></i></a>
-                      <h4><a href="https://www.facebook.com/PranongOi" STYLE="text-decoration: none">Nut</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/neativit.keawthong" STYLE="text-decoration: none">Nae</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/Phanurut.Chamaree" STYLE="text-decoration: none">Petch</a></h4>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              </ol>
             </div>
-          </div>
-          <div class="col-md-9">
             <div class="profile-content">
-              <div>
-                <ul class="breadcrumb">
-                  <li class="active"><a href="#" class="disabled"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;&nbsp;&nbsp; Home </a></li>
-                </ul>
-              </div>
               <div class="row">
-                <h1>Select Page~</h1>
-                <div class="col-xs-6 col-md-3">
+                <h1>● Select Page ●</h1>
+                <div class="col-md-3">
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('cupamag')"><img :src="'https://graph.facebook.com/' + 'cupamag' + '/picture?height=100'" alt=""><br>Cup A</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('cupdmag')"><img :src="'https://graph.facebook.com/' + 'cupdmag' + '/picture?height=100'" alt=""><br>Cup D</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('cupemag')"><img :src="'https://graph.facebook.com/' + 'cupemag' + '/picture?height=100'" alt=""><br>Cup E</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('Angels.mag2')"><img :src="'https://graph.facebook.com/' + 'Angels.mag2' + '/picture?height=100'" alt=""><br>Sexy angel</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('agirlmag')"><img :src="'https://graph.facebook.com/' + 'agirlmag' + '/picture?height=100'" alt=""><br>a girl</h4></router-link>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-md-3">
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('1647102408856768')"><img :src="'https://graph.facebook.com/' + '1647102408856768' + '/picture?height=100'" alt=""><br>Leo1991 Studio	</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('798627650219522')"><img :src="'https://graph.facebook.com/' + '798627650219522' + '/picture?height=100'" alt=""><br>Remembrance Life</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('1488731304764039')"><img :src="'https://graph.facebook.com/' + '1488731304764039' + '/picture?height=100'" alt=""><br>Makrid</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('812938462158071')"><img :src="'https://graph.facebook.com/' + '812938462158071' + '/picture?height=100'" alt=""><br>Intent Art Gallery</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('1677041912621580')"><img :src="'https://graph.facebook.com/' + '1677041912621580' + '/picture?height=100'" alt=""><br>k-girl</h4></router-link>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-md-3">
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('203413816686770')"><img :src="'https://graph.facebook.com/' + '203413816686770' + '/picture?height=100'" alt=""><br>Guypic</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('695316487270076')"><img :src="'https://graph.facebook.com/' + '695316487270076' + '/picture?height=100'" alt=""><br>Wenge.</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('820679761371818')"><img :src="'https://graph.facebook.com/' + '820679761371818' + '/picture?height=100'" alt=""><br>Wonderful Gallery</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('833137843460451')"><img :src="'https://graph.facebook.com/' + '833137843460451' + '/picture?height=100'" alt=""><br>anp.k</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('136276129896856')"><img :src="'https://graph.facebook.com/' + '136276129896856' + '/picture?height=100'" alt=""><br>Chayang Vintage Photographer</img></h4></router-link>
                 </div>
-                <div class="col-xs-6 col-md-3">
+                <div class="col-md-3">
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('1666155086932470')"><img :src="'https://graph.facebook.com/' + '1666155086932470' + '/picture?height=100'" alt=""><br>TuaTung Photographer</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('437871096289260')"><img :src="'https://graph.facebook.com/' + '437871096289260' + '/picture?height=100'" alt=""><br>ICEZ PHOTO</h4></router-link>
                   <router-link to="/albumpage" class="thumbnail" STYLE="text-decoration: none"><h4 @click="setIdPage('487003051473640')"><img :src="'https://graph.facebook.com/' + '487003051473640' + '/picture?height=100'" alt=""><br>Slotmxcn</h4></router-link>
@@ -82,7 +44,6 @@
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </div>
     </div>
@@ -263,16 +224,14 @@ a.btn-social,
    pointer-events: none;
    cursor: default;
 }
-body {
-  background: #F1F3FA;
-}
 /* Profile container */
 .profile {
-  margin: -30px 0;
+  /*margin: -50px 0;*/
 }
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
+  margin: -10px 0;
   background: #fff;
 }
 .profile-userpic img {
@@ -348,10 +307,10 @@ body {
 }
 /* Profile Content */
 .profile-content {
-  padding: 20px;
   background: #fff;
   min-height: 460px;
 }
+
 .breadcrumb {
     padding: 0px;
 	background: #D4D4D4;
@@ -367,14 +326,14 @@ body {
 }
 .breadcrumb li.active a {
 	background: brown;                   /* fallback color */
-	background: #ffc107 ;
+	background-color: #2494be;
 }
 .breadcrumb li.completed a {
 	background: brown;                   /* fallback color */
 	background: hsla(153, 57%, 51%, 1);
 }
 .breadcrumb li.active a:after {
-	border-left: 30px solid #ffc107 ;
+	border-left: 30px solid #2494be ;
 }
 .breadcrumb li.completed a:after {
 	border-left: 30px solid hsla(153, 57%, 51%, 1);
@@ -422,15 +381,26 @@ body {
 }
 .breadcrumb li a:hover { background: #ffc107  ; }
 .breadcrumb li a:hover:after { border-left-color: #ffc107   !important; }
+
 .box {
   background-color: #FFFFFF;
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;
 }
+.mynav {
+    /*position: fixed;*/
+    top: 0px;
+    width: 100%;
+}
+.mynavbutt {
+    /*position: fixed;*/
+    padding-top: 3px;
+    padding-left: 910px;
+}
 .Fixed {
     position: fixed;
-    top: 30px;
+    top: 70px;
     width: 700px;
 }
 h1 {
@@ -457,5 +427,9 @@ h5 {
 li {
   font-family: 'Raleway', sans-serif;
   font-size: 15px;
+}
+.navbar-right{
+    float: right !important;
+    margin-right: 10px;
 }
 </style>
